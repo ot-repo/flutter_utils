@@ -13,7 +13,12 @@ extension StrFormatter on String {
   }
 
   String replaceSpecialChars() {
-    return replaceAll(RegExp("ı"), 'i').replaceAll(RegExp("ç"), 'c').replaceAll(RegExp("ğ"), 'g').replaceAll(RegExp("ş"), 's').replaceAll(RegExp("ü"), 'u').replaceAll(RegExp("ö"), 'o');
+    return replaceAll(RegExp("ı"), 'i')
+        .replaceAll(RegExp("ç"), 'c')
+        .replaceAll(RegExp("ğ"), 'g')
+        .replaceAll(RegExp("ş"), 's')
+        .replaceAll(RegExp("ü"), 'u')
+        .replaceAll(RegExp("ö"), 'o');
   }
 
   String format(List<String> replacements) {
@@ -24,6 +29,11 @@ extension StrFormatter on String {
 
     return result;
   }
+
+  String capitalizeFirstLetter() {
+    if (isEmpty) return this;
+    return this[0].toUpperCase() + substring(1);
+  }
 }
 
 extension E on String {
@@ -31,11 +41,3 @@ extension E on String {
   bool isNumeric() => double.tryParse(this) != null;
   String allBeforeLastN(int n) => substring(0, length - n);
 }
-
-extension StringExtension on String {
-  String capitalizeFirstLetter() {
-    if (isEmpty) return this;
-    return this[0].toUpperCase() + substring(1);
-  }
-}
-
