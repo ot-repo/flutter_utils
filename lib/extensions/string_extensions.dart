@@ -31,3 +31,11 @@ extension E on String {
   bool isNumeric() => double.tryParse(this) != null;
   String allBeforeLastN(int n) => substring(0, length - n);
 }
+
+extension StringExtension on String {
+  String capitalizeFirstLetter() {
+    if (isEmpty) return this;
+    return this[0].toUpperCase() + substring(1);
+  }
+}
+
