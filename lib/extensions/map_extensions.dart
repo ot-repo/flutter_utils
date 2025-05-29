@@ -6,6 +6,14 @@ extension MapExt on Map {
       return this[key].toString() as T;
     }
 
+    if (T == int) {
+      return int.tryParse(this[key].toString()) as T;
+    }
+
+    if (T == double) {
+      return double.tryParse(this[key].toString()) as T;
+    }
+
     return this[key] as T;
   }
 
